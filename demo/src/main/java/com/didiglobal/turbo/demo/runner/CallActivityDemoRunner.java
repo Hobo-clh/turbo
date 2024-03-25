@@ -134,7 +134,8 @@ public class CallActivityDemoRunner implements CommandLineRunner {
         // Now it is stuck in the second user node of the parent process, 'Generate Work Order', driving the completion of the parent process
         commitTaskResult = commitMainFlowUserTask2(commitTaskResult);
 
-        assert commitTaskResult.getStatus() == ErrorEnum.SUCCESS.getErrNo();
+        // bugfix
+        assert commitTaskResult.getErrCode() == ErrorEnum.SUCCESS.getErrNo();
     }
 
     private StartProcessResult startProcessToCallActivity() {
